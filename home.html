@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDIOM - الرئيسية</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">STUDIOM</div>
+        <nav>
+            <ul>
+                
+                <li><a href="home.html" >الرئيسية</a></li>
+                <li><a href="timer.html">المؤقت</a></li>
+                <li><a href="tasks.html">المهام</a></li>
+                <li><a href="flashcards.html">البطاقات</a></li>
+                <li><a href="resources.html">المستودع</a></li>
+                
+            </ul>
+        </nav>
+        <div class="header-controls">
+            <span id="live-clock" style="font-size:0.85rem; font-weight:bold;"></span>
+            <button class="btn-icon" onclick="toggleDarkMode()">🌙</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- قسم الترحيب -->
+        <section class="card" style="text-align: center; padding: 40px 20px;">
+            <h1>مرحباً بك في منصة STUDIOM التعليمية 🎓</h1>
+            <p style="margin-top: 15px; color: var(--text-secondary);">منصتك المتكاملة لتنظيم الوقت، إدارة المهام الدراسية، والمراجعة الذكية.</p>
+        </section>
+
+        <!-- قسم النصائح التفاعلي (Slider) -->
+        <section class="card" style="margin-top: 20px;">
+            <h3>💡 نصيحة اليوم للدراسة</h3>
+            <div id="slider" style="margin-top: 15px; text-align: center; min-height: 50px;">
+                <p class="slide active">"تقنية بومودورو تساعدك على التركيز وتقليل الإجهاد الذهني."</p>
+                <p class="slide" >"التكرار المتباعد هو أفضل طريقة لتثبيت المعلومات في الذاكرة طويلة المدى."</p>
+                <p class="slide" >"كتابة المهام اليومية تقلل من التشتت وتزيد من الإنتاجية."</p>
+                <p class="slide active">"تقنية بومودورو تساعدك على التركيز وتقليل الإجهاد الذهني."</p>
+                <p class="slide" >"التكرار المتباعد هو أفضل طريقة لتثبيت المعلومات في الذاكرة طويلة المدى."</p>
+                <p class="slide" >"كتابة المهام اليومية تقلل من التشتت وتزيد من الإنتاجية."</p>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 10px; margin-top: 15px;">
+                <button class="btn" onclick="prevSlide()">السابق</button>
+                <button class="btn" onclick="nextSlide()">التالي</button>
+            </div>
+        </section>
+
+        <!-- روابط وصول سريع لخدمات المنصة -->
+      
+
+    </main>
+
+    <!-- زر العودة للأعلى -->
+    <button id="back-to-top" onclick="scrollToTop()" style="display:none; position:fixed; bottom:20px; left:20px;" class="btn">⬆️ للأعلى</button>
+    
+  <footer style="margin-top: 20px;">
+            <h3>🚀 الوصول السريع</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 15px;">
+                <a href="timer.html" class="btn" style="text-decoration: none; text-align: center; padding: 15px;">⏱️ مؤقت التركيز</a>
+                <a href="tasks.html" class="btn" style="text-decoration: none; text-align: center; padding: 15px;">📝 قائمة المهام</a>
+                <a href="flashcards.html" class="btn" style="text-decoration: none; text-align: center; padding: 15px;">🧠 بطاقات المراجعة</a>
+                <a href="resources.html" class="btn" style="text-decoration: none; text-align: center; padding: 15px;">📁 مستودع المصادر</a>
+            </div>
+        </footer>
+  
+    <script src="javascript/app.js"></script>
+</body>
+</html>

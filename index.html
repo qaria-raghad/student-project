@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDIOM - تسجيل الدخول</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header style="justify-content: center; position: relative;">
+        <div class="logo">STUDIOM</div>
+        <div class="header-controls" style="position: absolute; left: 20px;">
+            <button class="btn-icon" onclick="toggleDarkMode()">🌙</button>
+        </div>
+    </header>
+
+    <main class="container" style="max-width: 450px; margin-top: 60px;">
+        <section class="card">
+            <h2 style="text-align: center; margin-bottom: 20px;">🔑 تسجيل الدخول إلى المنصة</h2>
+            <form onsubmit="handleLoginRedirect(event)" style="display: flex; flex-direction: column; gap: 15px;">
+                <p id="form-error" style="color: var(--danger); font-size: 0.85rem; display: none; text-align: center; padding: 8px; background: rgba(255,0,0,0.1); border-radius: 5px;"></p>
+                
+                <div>
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">الاسم الكامل:</label>
+                    <input type="text" id="login-name" class="form-control" placeholder="أدخل اسمك الكامل" style="width: 100%;" required>
+                </div>
+
+                <div>
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">البريد الإلكتروني:</label>
+                    <input type="email" id="login-email" class="form-control" placeholder="example@domain.com" style="width: 100%;" required>
+                </div>
+
+                <div>
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">كلمة المرور:</label>
+                    <div style="display: flex; gap: 5px;">
+                        <input type="password" id="login-password" class="form-control" placeholder="••••••••" style="flex: 1;" required>
+                        <button type="button" class="btn" onclick="togglePasswordVisibility()">👁️</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" style="margin-top: 10px; width: 100%; font-weight: bold; padding: 10px;">دخول المنصة</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="javascript/app.js"></script>
+    <script>
+        function handleLoginRedirect(e) {
+            e.preventDefault();
+            const nameElem = document.getElementById('login-name');
+            const emailElem = document.getElementById('login-email');
+            const passElem = document.getElementById('login-password');
+            const err = document.getElementById('form-error');
+
+            const name = nameElem.value.trim();
+            const email = emailElem.value.trim();
+            const pass = passElem.value.trim();
+
+            if (!name || !email || !pass) {
+                if (err) { err.textContent = 'يرجى ملء جميع الحقول المطلوبة.'; err.style.display = 'block'; }
+                return;
+            }
+
+            if (!email.includes('@') || !email.includes('.')) {
+                if (err) { err.textContent = 'يرجى إدخال بريد إلكتروني صحيح.'; err.style.display = 'block'; }
+                return;
+            }
+
+            if (pass.length < 6) {
+                if (err) { err.textContent = 'كلمة المرور يجب ألا تقل عن 6 أحرف.'; err.style.display = 'block'; }
+                return;
+            }
+
+            // التوجيه التلقائي للصفحة الرئيسية بعد الانتهاء من التحقق
+            window.location.href = 'home.html';
+        }
+    </script>
+</body>
+</html>

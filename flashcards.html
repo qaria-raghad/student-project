@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDIOM - بطاقات المراجعة</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">STUDIOM</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">الرئيسية</a></li>
+                <li><a href="timer.html">المؤقت</a></li>
+                <li><a href="tasks.html">المهام</a></li>
+                <li><a href="flashcards.html" class="active">البطاقات</a></li>
+                <li><a href="resources.html">المستودع</a></li>
+              
+            </ul>
+        </nav>
+        <div class="header-controls">
+            <span id="live-clock" style="font-size:0.85rem; font-weight:bold;"></span>
+            <button class="btn-icon" onclick="toggleDarkMode()">🌙</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>🧠 إضافة بطاقة استذكار</h2>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+                <input type="text" id="fc-question" class="form-control" placeholder="السؤال أو المفهوم">
+                <input type="text" id="fc-answer" class="form-control" placeholder="الإجابة أو التوضيح">
+                <button class="btn" onclick="addNewFlashcard()">حفظ البطاقة</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>بطاقات المراجعة التفاعلية</h3>
+            <div id="flashcards-container" class="flashcard-grid" style="margin-top: 15px;  "></div>
+        </section>
+    </main>
+
+    <!-- Modal Notification -->
+    <div id="info-modal" class="modal">
+        <div class="modal-content">
+            <h3>تنبيه</h3>
+            <p id="modal-text" style="margin: 15px 0;"></p>
+            <button class="btn" onclick="closeModal()">إغلاق</button>
+        </div>
+    </div>
+  <button id="back-to-top" onclick="scrollToTop()" style="display:none; position:fixed; bottom:20px; left:20px;" class="btn">⬆️ للأعلى</button>
+
+    <script src="javascript/app.js"></script>
+</body>
+</html>

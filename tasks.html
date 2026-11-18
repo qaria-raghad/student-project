@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDIOM - إدارة المهام</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">STUDIOM</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">الرئيسية</a></li>
+                <li><a href="timer.html">المؤقت</a></li>
+                <li><a href="tasks.html" class="active">المهام</a></li>
+                <li><a href="flashcards.html">البطاقات</a></li>
+                <li><a href="resources.html">المستودع</a></li>
+                
+            </ul>
+        </nav>
+        <div class="header-controls">
+            <span id="live-clock" style="font-size:0.85rem; font-weight:bold;"></span>
+            <button class="btn-icon" onclick="toggleDarkMode()">🌙</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>📝 إضافة مهمة جديدة</h2>
+            <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                <input type="text" id="task-input" class="form-control" placeholder="أدخل وصف المهمة..." style="flex: 1;">
+                <select id="task-priority" class="form-control" style="width: 130px;">
+                    <option value="high">عالية</option>
+                    <option value="medium" selected>متوسطة</option>
+                    <option value="low">منخفضة</option>
+                </select>
+                <button class="btn" onclick="addNewTask()">إضافة</button>
+            </div>
+        </section>
+
+        <section class="card" style="margin-top: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <h3>قائمة المهام</h3>
+                <div style="display: flex; gap: 5px;">
+                    <button class="btn" onclick="filterTasks('all', this)">الكل</button>
+                    <button class="btn" onclick="filterTasks('pending', this)">المتبقية</button>
+                    <button class="btn" onclick="filterTasks('completed', this)">المكتملة</button>
+                </div>
+            </div>
+
+            <div style="margin: 15px 0; background: #eee; border-radius: 5px; height: 10px; overflow: hidden;">
+                <div id="task-progress-fill" style="background: var(--primary); height: 100%; width: 0%; transition: width 0.3s;"></div>
+            </div>
+            <p id="task-progress-text" style="font-size: 0.85rem; color: var(--text-secondary); text-align: center;"></p>
+
+            <div id="tasks-container" style="margin-top: 15px;"></div>
+        </section>
+    </main> <!-- زر العودة للأعلى -->
+    <button id="back-to-top" onclick="scrollToTop()" style="display:none; position:fixed; bottom:20px; left:20px;" class="btn">⬆️ للأعلى</button>
+
+    <script src="javascript/app.js"></script>
+</body>
+</html>

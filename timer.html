@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDIOM - المؤقت والآلة الحاسبة</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">STUDIOM</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">الرئيسية</a></li>
+                <li><a href="timer.html" class="active">المؤقت</a></li>
+                <li><a href="tasks.html">المهام</a></li>
+                <li><a href="flashcards.html">البطاقات</a></li>
+                <li><a href="resources.html">المستودع</a></li>
+             
+            </ul>
+        </nav>
+        <div class="header-controls">
+            <span id="live-clock" style="font-size:0.85rem; font-weight:bold;"></span>
+            <button class="btn-icon" onclick="toggleDarkMode()">🌙</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card" style="text-align: center;">
+            <h2>⏱️ مؤقت بومودورو للتركيز</h2>
+            <div id="timer" style="font-size: 3rem; font-weight: bold; margin: 20px 0; color: var(--primary);">25:00</div>
+            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                <button id="start-btn" class="btn" onclick="toggleTimer()">ابدأ الجلسة</button>
+                <button class="btn" onclick="resetTimer()" style="background-color:#fd0176">إعادة ضبط</button>
+                <button class="btn" onclick="setTimerMode('work')">وضع العمل (25د)</button>
+                <button class="btn" onclick="setTimerMode('break')">استراحة (5د)</button>
+            </div>
+        </section>
+
+        <section class="card" style="margin-top: 20px;">
+            <h3>🧮 حاسبة ساعات المذاكرة المتوقعة</h3>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+                <input type="number" id="calc-days" class="form-control" placeholder="عدد الأيام المتبقية">
+                <input type="number" id="calc-hours" class="form-control" placeholder="عدد الساعات اليومية">
+                <button class="btn" onclick="calculateTotalHours()">حساب الإجمالي</button>
+                <p id="calc-result" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="javascript/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDIOM - مستودع المصادر</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">STUDIOM</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">الرئيسية</a></li>
+                <li><a href="timer.html">المؤقت</a></li>
+                <li><a href="tasks.html">المهام</a></li>
+                <li><a href="flashcards.html">البطاقات</a></li>
+                <li><a href="resources.html" class="active">المستودع</a></li>
+               
+            </ul>
+        </nav>
+        <div class="header-controls">
+            <span id="live-clock" style="font-size:0.85rem; font-weight:bold;"></span>
+            <button class="btn-icon" onclick="toggleDarkMode()">🌙</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>📁 إضافة مصدر تعليمي</h2>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+                <input type="text" id="res-name" class="form-control" placeholder="اسم الملزمة أو الفيديو">
+                <select id="res-type" class="form-control">
+                    <option value="pdf">ملف PDF / ملزمة</option>
+                    <option value="video">فيديو شرح</option>
+                    <option value="link">رابط موقع</option>
+                </select>
+                <input type="url" id="res-link" class="form-control" placeholder="رابط المصدر (اختياري)">
+                <button class="btn" onclick="addNewResource()">إضافة للمستودع</button>
+            </div>
+        </section>
+
+        <section class="card" style="margin-top: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h3>المصادر المحفوظة</h3>
+                <input type="text" id="search-input" class="form-control" placeholder="بحث في المصادر..." onkeyup="searchResources()" style="width: 200px;">
+            </div>
+            <div id="resources-container"></div>
+        </section>
+    </main>
+  <button id="back-to-top" onclick="scrollToTop()" style="display:none; position:fixed; bottom:20px; left:20px;" class="btn">⬆️ للأعلى</button>
+
+    <script src="javascript/app.js"></script>
+</body>
+</html>
